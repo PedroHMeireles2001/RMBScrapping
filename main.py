@@ -18,8 +18,6 @@ def main(data):
     except:
         return False
 
-    if not banco.delete_duplicate(conexao, data):
-        return False
 
     data_formatada = data.strftime('%d/%m/%Y')
     url = f'https://rmb.varejofacil.com/vendaConsolidada/porLoja?=&filtro.dataInicial={data_formatada}&filtro.dataFinal={data_formatada}&filtro.itemMenuSelecionado=loja&filtro.tipoDeGrafico=&filtro.codigoDaHolding=&filtro.codigoDaLoja=&_=1710854458959'
@@ -35,7 +33,7 @@ def main(data):
     chrome_options.add_argument('--no-sandbox')
     header = Headers(
         browser="chrome",  # Generate only Chrome UA
-        os="win",  # Generate only Windows platform
+        os="lin",  # Generate only Windows platform
         headers=False  # generate misc headers
     )
     customUserAgent = header.generate()['User-Agent']
@@ -61,6 +59,12 @@ def main(data):
         time.sleep(10)
     except:
         return False
+
+    driver.save_screenshot('screenshot.png')
+
+    if not banco.delete_duplicate(conexao, data):
+        return False
+
 
     # pegando os dados geral
     parsed_json = pegar_json(driver, url)
