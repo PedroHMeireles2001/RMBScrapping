@@ -9,10 +9,6 @@ Este projeto consiste no desenvolvimento de um bot de automação para varejo co
   **Web Scraping do Varejo Fácil**: O bot realiza web scraping do sistema "Varejo Fácil", coletando informações como inventário de produtos, vendas realizadas, histórico de compras dos clientes, entre outros.
     
 -  **Armazenamento em Banco de Dados**: Os dados coletados são armazenados em um banco de dados MySQL, proporcionando uma base sólida para análise e consulta posterior.
-
--   **Rota para Atualizar os Dados Manualmente**: Implementa uma rota no Flask para atualização manual dos dados, permitindo que os usuários possam forçar uma nova coleta de dados a qualquer momento.
-    
--   **Cron Job para Execução Automática**: Utiliza um cron job para agendar a execução do script principal (`main.py`) em intervalos regulares, garantindo que os dados sejam atualizados automaticamente em determinados horários.
     
 
 ## Tecnologias Utilizadas
@@ -54,16 +50,6 @@ Este projeto consiste no desenvolvimento de um bot de automação para varejo co
 
    Certifique-se de que o bot esteja conectado à internet para realizar o web scraping e que o banco de dados MySQL esteja configurado corretamente para receber os dados coletados do dia anterior.
 
-5. **Atualização Manual dos Dados**:
-   - Utilize a rota fornecida pelo Flask ("/bot?data=dd/MM/yyyy")  para atualizar manualmente os dados, acessando-a por meio de um navegador ou enviando uma requisição HTTP.
-   - ``python Flask.py``
-
-6. **Execução Automática com Cron Job**:
-   - Configure um cron job no servidor onde o bot está hospedado para executar o script `main.py` em intervalos regulares. Por exemplo, para agendar a execução a cada 6 horas, você pode adicionar a seguinte linha ao seu arquivo de cron jobs:
-     ```
-     0 */6 * * * /path/to/python /path/to/main.py
-     ```
-   Isso garantirá que os dados sejam atualizados automaticamente sem intervenção manual. Certifique-se de substituir `/path/to/python` pelo caminho para a instalação do Python e `/path/to/main.py` pelo caminho para o script principal do bot.
     
 
 ## Autor
